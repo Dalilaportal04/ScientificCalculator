@@ -1,0 +1,213 @@
+'''
+Lab 3
+Author: Dalila Portal
+Class: COP3502C
+Section:12309
+Description: A scientific calculator on the command line. The program will display
+a menu of options which includes several arithmetic operations as well as options to clear the result,
+display statistics, and exit the program.
+'''
+import math
+
+# Base values
+current_result = float(0)
+sum_calculations = float(0)
+num_calculations = int(0)
+
+# Menu
+print(f"Current Result: {current_result}\n")
+print("Calculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average")
+
+# While allows for the calculator options to keep looping back after one is done
+while True:
+    # Incase the user inputs a variable that is not one of the options such as a string
+    try:
+        selection = int(input("Enter Menu Selection: "))
+    except ValueError: # Incase the user doesn't input an int
+        print(" ")
+        print("Error: Invalid selection!")
+        print(" ")
+        continue
+        # Exits the calculator
+    if selection == 0: # User input options
+        print(" ")
+        print("Thanks for using this calculator. Goodbye!")
+        break
+        # Leaves while loop and code
+    elif selection == 1:
+        try:
+            first_operand = float(input("Enter first operand: "))
+        except ValueError:
+            print(" ")
+            print("Error: Invalid selection!")
+            print(" ")
+            continue
+        second_operand = input("Enter second operand: ") # Is not defined as an int so that RESULT can be inputted
+        if second_operand == "RESULT": # RESULT replace the second operand with the result of the previous calculation
+            current_result = first_operand + current_result # Adds both numbers
+        else:
+            try: # If two operands are given
+                second_operand = float(second_operand)
+                current_result = first_operand + second_operand # Addition
+            except ValueError:
+                print(" ")
+                print("Error: Invalid selection!")
+                print(" ")
+                continue
+        current_result = round(current_result, 2) # Keeps result with a max of two decimals places
+        sum_calculations += current_result # Adds result to a total amount of calculation answers that the user has done
+        num_calculations += 1 # Counts how many calculations the user has done
+        print(" ")
+        # Menu
+        print(f"Current Result: {current_result}\n")
+        print("Calculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average")
+    elif selection == 2:
+        try:
+            first_operand = float(input("Enter first operand: "))
+        except ValueError:
+            print(" ")
+            print("Error: Invalid selection!")
+            print(" ")
+            continue
+        second_operand = input("Enter second operand: ")
+        if second_operand == "RESULT":
+            current_result = first_operand - current_result # Subtracts both numbers
+        else:
+            try:
+                second_operand = float(second_operand)
+            except ValueError:
+                print(" ")
+                print("Error: Invalid selection!")
+                print(" ")
+                continue
+            current_result = first_operand - second_operand
+        current_result = round(current_result, 2)
+        sum_calculations += current_result
+        num_calculations += 1
+        print(" ")
+        # Menu
+        print(f"Current Result: {current_result}\n")
+        print("Calculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average")
+    elif selection == 3:
+        try:
+            first_operand = float(input("Enter first operand: "))
+        except ValueError:
+            print(" ")
+            print("Error: Invalid selection!")
+            print(" ")
+            continue
+        second_operand = input("Enter second operand: ")
+        if second_operand == "RESULT":
+            current_result = first_operand * current_result # Multiples both numbers
+        else:
+            try:
+                second_operand = float(second_operand)
+                current_result = first_operand * second_operand
+            except ValueError:
+                print(" ")
+                print("Error: Invalid selection!")
+                print(" ")
+                continue
+        current_result = round(current_result, 2)
+        sum_calculations += current_result
+        num_calculations += 1
+        print(" ")
+        # Menu
+        print(f"Current Result: {current_result}\n")
+        print("Calculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average")
+    elif selection == 4:
+        try:
+            first_operand = float(input("Enter first operand: "))
+        except ValueError:
+            print(" ")
+            print("Error: Invalid selection!")
+            print(" ")
+            continue
+        second_operand = input("Enter second operand: ")
+        if second_operand == "RESULT":
+            current_result = first_operand / current_result # Divides both numbers
+        else:
+            try:
+                second_operand = float(second_operand)
+                current_result = first_operand / second_operand
+            except ValueError:
+                print(" ")
+                print("Error: Invalid selection!")
+                print(" ")
+                continue
+        current_result = round(current_result, 2)
+        sum_calculations += current_result
+        num_calculations += 1
+        print(" ")
+        # Menu
+        print(f"Current Result: {current_result}\n")
+        print("Calculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average")
+    elif selection == 5:
+        try:
+            first_operand = float(input("Enter first operand: "))
+        except ValueError:
+            print(" ")
+            print("Error: Invalid selection!")
+            print(" ")
+            continue
+        second_operand = input("Enter second operand: ")
+        if second_operand == "RESULT":
+            current_result = first_operand ** current_result # Sets the first operand to the power of the seccond operand
+        else:
+            try:
+                second_operand = float(second_operand)
+                current_result = first_operand ** second_operand
+            except ValueError:
+                print(" ")
+                print("Error: Invalid selection!")
+                print(" ")
+                continue
+        sum_calculations += current_result
+        num_calculations += 1
+        print(" ")
+        # Menu
+        print(f"Current Result: {current_result}\n")
+        print("Calculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average")
+    elif selection == 6:
+        try:
+            first_operand = float(input("Enter first operand: "))
+        except ValueError:
+            print(" ")
+            print("Error: Invalid selection!")
+            print(" ")
+            continue
+        second_operand = input("Enter second operand: ")
+        if second_operand == "RESULT":
+            current_result = math.log(current_result, first_operand) # Finds the log of the number
+        else:
+            try:
+                second_operand = float(second_operand)
+                current_result = math.log(second_operand, first_operand)
+            except ValueError:
+                print(" ")
+                print("Error: Invalid selection!")
+                print(" ")
+                continue
+        current_result = round(current_result, 2)
+        sum_calculations += current_result
+        num_calculations += 1
+        print(" ")
+        # Menu
+        print(f"Current Result: {current_result}\n")
+        print("Calculator Menu\n---------------\n0. Exit Program\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponentiation\n6. Logarithm\n7. Display Average")
+    elif selection == 7:
+        if sum_calculations < 0:
+            print(f"Sum of calculations: {sum_calculations}") # Adds up all the calculations made
+            print(f"Number of calculations: {num_calculations}") # Adds the amount of times calculations were made
+            avg_calculations = sum_calculations / num_calculations # Finds the average of the calculations
+            avg_calculations = round(avg_calculations,2)
+            print(f"Average of calculations: {avg_calculations}")
+            print(" ")
+        else:
+            print("Error: No calculations yet to average!")
+            continue
+    else:
+        print(" ")
+        print("Error: Invalid selection!") # Incase the user enters an input that is not in the menu
+        print(" ")
+        continue
